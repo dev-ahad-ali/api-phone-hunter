@@ -12,6 +12,18 @@ const displayPhones = (phones) => {
   // clear phone container before adding new cards
   phoneContainer.textContent = "";
 
+  // display show all button if there are more than 8 phones
+  const showAllContainer = document.getElementById("show-all-container");
+  if (phones.length > 8) {
+    showAllContainer.classList.remove("hidden");
+  } else {
+    showAllContainer.classList.add("hidden");
+  }
+
+  console.log(phones.length);
+  // display only first 8 phones
+  phones = phones.slice(0, 8);
+
   phones.forEach((phone) => {
     console.log(phone);
     // 2 create a div
@@ -35,13 +47,24 @@ const displayPhones = (phones) => {
     // 4 append child
     phoneContainer.appendChild(phoneCard);
   });
+  // hide loading spinner
+  toggleLoading(false);
 };
 
 // handle search button
 const handleSearch = () => {
+  toggleLoading(true);
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   loadPhone(searchText);
 };
 
+const toggleLoading = (isLoading) => {
+  const loading = document.getElementById("loading");
+  if (isLoading) {
+    loading.classList.remove("hidden");
+  } else {
+    loading.classList.add("hidden");
+  }
+};
 // loadPhone();
