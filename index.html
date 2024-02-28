@@ -42,6 +42,21 @@
             Show all
           </button>
         </div>
+        <!-- Details Modal -->
+        <!-- You can open the modal using ID.showModal() method -->
+        <dialog id="show_details_modal" class="modal">
+          <div class="modal-box">
+            <form method="dialog">
+              <button
+                class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
+                ✕
+              </button>
+            </form>
+            <h3 id="phone-name" class="font-bold text-3xl"></h3>
+            <div id="show-detail-container"></div>
+          </div>
+        </dialog>
       </section>
     </main>
     <footer></footer>
